@@ -1,0 +1,17 @@
+#lang racket
+(define (max_2_squares x y z)
+  (cond [(and (>= x z) (>= y z)) (2_squares x y)]
+        [(and (>= x y) (>= z y)) (2_squares x z)]
+        [else (2_squares y z)])
+  )
+
+(define (2_squares x y)
+  (+ (* x x) (* y y)))
+
+(define (power_close_to a b)
+  (define (greater_power c)
+    (cond [(and (<= (expt a (- c 1)) b) (>= (expt a c) b)) c]
+          [(> (expt a (- c 1)) b) (greater_power (- c 1))]
+          [else (greater_power (+ c 1))]))
+  (greater_power 1))
+        

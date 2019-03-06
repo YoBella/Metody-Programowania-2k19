@@ -10,7 +10,7 @@
 
 (define (power_close_to a b)
   (define (greater_power c)
-    (cond [(and (<= (expt a (- c 1)) b) (>=ls (expt a c) b)) c]
+    (cond [(and (<= (expt a (- c 1)) b) (>= (expt a c) b)) c]
           [(> (expt a (- c 1)) b) (greater_power (- c 1))]
           [else (greater_power (+ c 1))]))
   (greater_power 1))
